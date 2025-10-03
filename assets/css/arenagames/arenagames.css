@@ -14,7 +14,7 @@ html {
 }
 
 .section-subtitle {
-  color: #304293;
+  color: #000000;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -26,7 +26,7 @@ html {
   font-weight: 700;
   font-size: 2.5rem;
   /* margin-bottom: 1.5rem; */
-  color: #304293;
+  color: #000000;
 }
 
 .event-card {
@@ -46,7 +46,7 @@ html {
 .event-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
-  color: #304293;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
@@ -430,3 +430,45 @@ a.name {
 .event-gallery .carousel-control-next:hover {
   opacity: 1;
 }
+
+/* 1) Imagem de fundo da seção inicial */
+#home.main.gradient-bg {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+
+  /* CAMINHO RELATIVO AO CSS:
+     assets/css/arenagames/arenagames.css  ->  assets/img/home_bg.png
+     suba duas pastas e entre em img/  =>  ../../img/home_bg.png  */
+  background-image: url("../../img/home_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 2) Desativa o overlay genérico só aqui (você já tem .main::before global) */
+#home.main::before {
+  content: none;
+}
+
+/* 3) Overlay dedicado desta seção (controla contraste do texto) */
+#home .background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* ajuste 0.35–0.60 conforme a foto */
+  z-index: 0;                   /* fica atrás do conteúdo */
+}
+
+/* Conteúdo por cima do overlay */
+#home .container,
+#home .main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Legibilidade */
+#home h1 { text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+#home p  { max-width: 72ch; text-wrap: pretty; }

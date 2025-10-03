@@ -31,7 +31,8 @@ html {
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-outline-primary {
     display: inline-block;
     padding: 0.8rem 2rem;
     background-color: #0f085a;
@@ -46,12 +47,13 @@ html {
 }
 
 .btn-primary:hover,
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-outline-primary:hover {
     background-color: #2f287c;
     color: white;
 }
 
-.main {
+/* .main {
     min-height: 50vh;
     width: 100%;
     background-position: center;
@@ -60,7 +62,7 @@ html {
     display: flex;
     align-items: center;
     position: relative;
-}
+} */
 
 .main::before {
     content: '';
@@ -105,7 +107,7 @@ html {
 .month-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    color: #304293;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -462,3 +464,58 @@ a.name:hover {
 .event-gallery .carousel-control-next:hover {
     opacity: 1;
 }
+
+.event-card .event-actions,
+.event-card .event-more {
+  display: inline-flex;          /* ficam na mesma linha */
+  gap: 10px;
+  flex-wrap: wrap;               /* quebra se faltar espaço */
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* ===== HERO: imagem de fundo na seção #home (sem quebrar outras imagens) ===== */
+#home.main.gradient-bg {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  min-height: 50vh;          /* ou 60–70vh se quiser maior */
+  display: flex;
+  align-items: center;
+
+  /* use APENAS UM dos dois URLs abaixo: */
+
+  /* 1) Caminho ABSOLUTO (recomendado se /assets é na raiz do site) */
+  background-image: url("../../img/home_p.png") !important;
+
+  /* 2) Caminho RELATIVO ao arquivo CSS (se preferir relativo, comente o de cima)
+     este CSS está junto do restante; ajuste conforme a sua árvore de pastas.
+     Exemplo comum: assets/css/schedule/ -> assets/img/
+     background-image: url("../../img/home_bg.png") !important; */
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Evita overlay duplo se existir .main::before global */
+#home.main::before { content: none !important; }
+
+/* Overlay via DIV para garantir contraste do texto */
+#home .background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* ajuste 0.35–0.60 conforme a foto */
+  z-index: 0;
+}
+
+/* Conteúdo acima do overlay */
+#home .container,
+#home .main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Legibilidade do título/texto */
+#home .main-content h1 { text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+#home .main-content p  { max-width: 72ch; text-wrap: pretty; }
