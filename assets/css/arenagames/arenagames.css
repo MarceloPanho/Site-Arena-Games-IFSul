@@ -437,6 +437,16 @@ a.name {
   .game-mode-card .game-title {
     font-size: 1.25rem;
   }
+
+  #home.main.gradient-bg {
+    min-height: 320px;
+    background-position: center top;
+  }
+
+  #home .main-content {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .game-image {
@@ -489,16 +499,19 @@ a.name {
   position: relative;
   isolation: isolate;
   color: #fff;
-  min-height: 70vh;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  min-height: clamp(360px, 34vw, 620px);
   display: flex;
   align-items: center;
 
   /* CAMINHO RELATIVO AO CSS:
      assets/css/arenagames/arenagames.css  ->  assets/img/home_bg.png
      suba duas pastas e entre em img/  =>  ../../img/home_bg.png  */
-  background-image: url("../../img/home_bg.png");
+  background-image: url("../../img/background_20261_side_logo_dark.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 
@@ -520,6 +533,10 @@ a.name {
 #home .main-content {
   position: relative;
   z-index: 1;
+}
+
+#home .main-content {
+  width: min(44%, 640px);
 }
 
 /* Legibilidade */

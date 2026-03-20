@@ -422,6 +422,11 @@ a.name:hover {
     .event-card {
         padding: 1.5rem;
     }
+
+    #home.main.gradient-bg {
+        min-height: 320px !important;
+        background-position: center top !important;
+    }
 }
 
 .schedule-wrapper {
@@ -479,14 +484,17 @@ a.name:hover {
   position: relative;
   isolation: isolate;
   color: #fff;
-  min-height: 50vh;          /* ou 60–70vh se quiser maior */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  min-height: clamp(360px, 34vw, 620px);
   display: flex;
   align-items: center;
 
   /* use APENAS UM dos dois URLs abaixo: */
 
   /* 1) Caminho ABSOLUTO (recomendado se /assets é na raiz do site) */
-  background-image: url("../../img/home_p.png") !important;
+  background-image: url("../../img/background_20261_side_logo_dark.png") !important;
 
   /* 2) Caminho RELATIVO ao arquivo CSS (se preferir relativo, comente o de cima)
      este CSS está junto do restante; ajuste conforme a sua árvore de pastas.
@@ -494,7 +502,7 @@ a.name:hover {
      background-image: url("../../img/home_bg.png") !important; */
 
   background-size: cover !important;
-  background-position: center !important;
+  background-position: center top !important;
   background-repeat: no-repeat !important;
 }
 
